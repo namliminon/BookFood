@@ -1,8 +1,23 @@
 package com.bookfood.backend.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="mon_an")
 public class MonAn {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idMon")
+    private int idMon;
+
+    @Column(name = "tenMon",nullable = false)
     private String tenMon;
+
+    @Column(name = "giaTien")
     private double giaTien;
+
+    @Column(name = "hinhAnh")
     private String hinhAnh;
 
     public MonAn(String tenMon, double giaTien, String hinhAnh) {

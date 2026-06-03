@@ -1,16 +1,29 @@
 package com.bookfood.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.time.Duration;
 import java.time.LocalDateTime;
-
+@Entity // Khai báo đây là 1 thực thể
+@Table(name= "ban_an")  // Tạo bảng tên ban_an
 public class BanAn {
-
+    @Id
+    @Column(name="idBan")
     private int idBan;
+
+    @Column(name="ordered")
     private boolean ordered;
+
+    @Column(name = "thoiGianDatMon")
     private LocalDateTime thoiGianDatMon;
+
+    @Column(name = "tongTien")
     private double tongTien;
+
+    @Column(name = "paid")
     private boolean paid;
 
     public BanAn(int idBan){
@@ -61,4 +74,8 @@ public class BanAn {
 
     public double getTongTienHienTai() { return tongTien; }
     public void setTongTienHienTai(double tongTien) { this.tongTien = tongTien; }
+
+    public boolean isPaid() { return paid; }
+    public void setPaid(boolean paid) { this.paid = paid; }
+
 }
